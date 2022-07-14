@@ -42,8 +42,8 @@
 					class="form-control-sm mr-2 mb-3" />
 
 				<button type="submit" class="btn btn-success btn-sm mb-3">Search</button>
-					 <!-- <a href="/LibraryManagement/logout" 
-					class="btn btn-primary btn-sm mb-3 mx-auto"> Logout </a> -->
+					 <a href="/LibraryManagement/logout" 
+					class="btn btn-primary btn-sm mb-3 mx-auto"> Logout </a>
 
 			</form>
 	

@@ -1,5 +1,6 @@
 package com.greatlearning.librarymanagement.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.greatlearning.librarymanagement.model.Book;
 import com.greatlearning.librarymanagement.service.BookService;
@@ -63,4 +65,17 @@ public class BooksController {
 		}
 		return "redirect:/books/list";
 	}
+	
+	@RequestMapping("/403")
+	public ModelAndView delete(Principal user) {
+		ModelAndView model = new ModelAndView();
+		if(user != null) {
+			model.addObject("msg", "Hi "+user.getName()+", you don't have permission to perform this action");
+		}else {
+			model.addObject("msg", "Hi, you don't have permission to perform this action");
+		}
+		model.setViewName("403");
+		return model;
+	}
+
 }
